@@ -6,7 +6,7 @@
 //
 
 
-package bean;
+package entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +15,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Java class for Catalog complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected         content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Catalog"&gt;
  *   &lt;complexContent&gt;
@@ -30,13 +30,11 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "catalog")
 @XmlType(name = "Catalog", propOrder = {
-    "category"
+        "category"
 })
 public class Catalog {
 
@@ -46,25 +44,23 @@ public class Catalog {
 
     /**
      * Gets the value of the category property.
-     * 
+     * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the category property.
-     * 
+     * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCategory().add(newItem);
      * </pre>
-     * 
-     * 
+     * <p>
+     * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Category }
-     * 
-     * 
      */
     public List<Category> getCategory() {
         if (category == null) {
@@ -75,11 +71,9 @@ public class Catalog {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -87,14 +81,26 @@ public class Catalog {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
