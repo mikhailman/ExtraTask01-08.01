@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.*;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "catalog")
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Catalog", propOrder = {
         "category"
 })
@@ -90,17 +90,42 @@ public class Catalog {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Catalog catalog = (Catalog) obj;
+        if (this.category != catalog.category) {
+            return false;
+        }
+
+//        if (!this.category.equals(catalog.category)) {
+//            return false;
+//        }
+
+        if (this.name == null || this.name != catalog.name) {
+            return false;
+        }
+        if (!this.name.equals(catalog.name)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (name == null ? 0 : name.hashCode());
+        result = prime * result + (category == null ? 0 : category.hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return getClass().getName() + " name = " + getName() + " category = " + getCategory();
     }
 }

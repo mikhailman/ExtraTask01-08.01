@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for News complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected         content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="News"&gt;
  *   &lt;complexContent&gt;
@@ -31,8 +31,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "News")
@@ -49,11 +47,9 @@ public class News {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -61,11 +57,9 @@ public class News {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -73,11 +67,9 @@ public class News {
 
     /**
      * Gets the value of the provider property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getProvider() {
         return provider;
@@ -85,11 +77,9 @@ public class News {
 
     /**
      * Sets the value of the provider property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setProvider(String value) {
         this.provider = value;
@@ -97,11 +87,9 @@ public class News {
 
     /**
      * Gets the value of the dateOfIssue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDateOfIssue() {
         return dateOfIssue;
@@ -109,11 +97,9 @@ public class News {
 
     /**
      * Sets the value of the dateOfIssue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDateOfIssue(String value) {
         this.dateOfIssue = value;
@@ -121,11 +107,9 @@ public class News {
 
     /**
      * Gets the value of the newsBody property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNewsBody() {
         return newsBody;
@@ -133,14 +117,65 @@ public class News {
 
     /**
      * Sets the value of the newsBody property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNewsBody(String value) {
         this.newsBody = value;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        News news = (News) obj;
+        if (this.name == null || this.name != news.name) {
+            return false;
+        }
+        if (!this.name.equals(news.name)) {
+            return false;
+        }
+        if (this.provider == null || this.provider != news.provider) {
+            return false;
+        }
+        if (!this.provider.equals(news.provider)) {
+            return false;
+        }
+        if (this.dateOfIssue == null || this.dateOfIssue != news.dateOfIssue) {
+            return false;
+        }
+        if (!this.dateOfIssue.equals(news.dateOfIssue)) {
+            return false;
+        }
+        if (this.newsBody == null || this.newsBody != news.newsBody) {
+            return false;
+        }
+        if (!this.newsBody.equals(news.newsBody)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (name == null ? 0 : name.hashCode());
+        result = prime * result + (provider == null ? 0 : provider.hashCode());
+        result = prime * result + (dateOfIssue == null ? 0 : dateOfIssue.hashCode());
+        result = prime * result + (newsBody == null ? 0 : newsBody.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + " name = " + getName() + " provider = " + getProvider() +
+                " dataOfIssue = " + getDateOfIssue() + " newsBody = " + getNewsBody();
+
+    }
 }

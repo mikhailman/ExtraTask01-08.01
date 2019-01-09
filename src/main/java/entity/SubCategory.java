@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for SubCategory complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected         content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="SubCategory"&gt;
  *   &lt;complexContent&gt;
@@ -33,12 +33,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SubCategory", propOrder = {
-    "news"
+        "news"
 })
 public class SubCategory {
 
@@ -48,25 +46,23 @@ public class SubCategory {
 
     /**
      * Gets the value of the news property.
-     * 
+     * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the news property.
-     * 
+     * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getNews().add(newItem);
      * </pre>
-     * 
-     * 
+     * <p>
+     * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link News }
-     * 
-     * 
      */
     public List<News> getNews() {
         if (news == null) {
@@ -77,11 +73,9 @@ public class SubCategory {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -89,14 +83,46 @@ public class SubCategory {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        SubCategory subCategory = (SubCategory) obj;
+        if (this.news != subCategory.news) {
+            return false;
+        }
+        if (this.name == null || this.name != subCategory.name) {
+            return false;
+        }
+        if (!this.name.equals(subCategory.name)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (name == null ? 0 : name.hashCode());
+        result = prime * result + (news == null ? 0 : news.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + " name = " + getName() + " news = " + getNews();
+    }
 }

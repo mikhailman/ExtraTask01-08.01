@@ -6,8 +6,7 @@ import dao.implementation.JAXBParser;
 
 public class Main {
     public static void main(String[] args) throws DAOException {
-        IJAXBParser jaxbParser = new JAXBParser();
-        System.out.println(jaxbParser.read());
-
+        IJAXBParser ijaxbParser = new JAXBParser();
+        System.out.println(ijaxbParser.read());
     }
 }

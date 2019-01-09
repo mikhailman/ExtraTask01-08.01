@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://jd2.htp.ExtraTask01.com">
     <category name="Films">
         <subcategory name="action">
@@ -12,7 +12,8 @@
     </category>
     <category name="Books">
         <subcategory name="novel">
-            <news name="Gone with the Wind" provider="Margaret Munnerlyn Mitchell" dateOfIssue="30.06.1936" newsBody="the novel by Margaret Mitchell"/>
+            <news name="Gone with the Wind" provider="Margaret Munnerlyn Mitchell" dateOfIssue="30.06.1936"
+                  newsBody="the novel by Margaret Mitchell"/>
         </subcategory>
     </category>
 </catalog>
