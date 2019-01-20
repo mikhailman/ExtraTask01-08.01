@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://jd2.htp.ExtraTask01.com", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package entity;
+package jd2.htp.verishko.entity;

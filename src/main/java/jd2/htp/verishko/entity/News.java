@@ -6,7 +6,7 @@
 //
 
 
-package entity;
+package jd2.htp.verishko.entity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -174,8 +174,9 @@ public class News {
 
     @Override
     public String toString() {
-        return getClass().getName() + " name = " + getName() + " provider = " + getProvider() +
-                " dataOfIssue = " + getDateOfIssue() + " newsBody = " + getNewsBody();
-
+        return "News " + "name = " + getName() +
+                ", provider = " + getProvider() +
+                ", dataOfIssue = " + getDateOfIssue() +
+                ", newsBody = " + getNewsBody();
     }
 }

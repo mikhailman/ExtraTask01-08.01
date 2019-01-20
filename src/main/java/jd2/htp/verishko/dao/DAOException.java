@@ -1,4 +1,4 @@
-package dao;
+package jd2.htp.verishko.dao;
 
 public class DAOException extends Exception {
     public DAOException() {

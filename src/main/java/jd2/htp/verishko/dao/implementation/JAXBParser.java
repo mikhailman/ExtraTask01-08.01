@@ -1,8 +1,8 @@
-package dao.implementation;
+package jd2.htp.verishko.dao.implementation;
 
-import dao.DAOException;
-import dao.IJAXBParser;
-import entity.Catalog;
+import jd2.htp.verishko.dao.DAOException;
+import jd2.htp.verishko.dao.IJAXBParser;
+import jd2.htp.verishko.entity.Catalog;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -14,7 +14,7 @@ public class JAXBParser implements IJAXBParser {
 
     private String path = String.valueOf(ClassLoader.getSystemResource("catalog.xml").getFile());
 
-    public Catalog read() throws DAOException {
+    public Catalog readFromXml() throws DAOException {
         Catalog catalog = null;
         try {
             JAXBContext context = JAXBContext.newInstance(Catalog.class);
@@ -26,7 +26,7 @@ public class JAXBParser implements IJAXBParser {
         return catalog;
     }
 
-    public void write(Catalog catalog) throws DAOException {
+    public void writeToXml(Catalog catalog) throws DAOException {
         try {
             JAXBContext context = JAXBContext.newInstance(Catalog.class);
             Marshaller marshaller = context.createMarshaller();

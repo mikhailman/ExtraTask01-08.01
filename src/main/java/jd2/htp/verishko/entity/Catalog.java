@@ -6,7 +6,7 @@
 //
 
 
-package entity;
+package jd2.htp.verishko.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,11 +101,9 @@ public class Catalog {
         if (this.category != catalog.category) {
             return false;
         }
-
-//        if (!this.category.equals(catalog.category)) {
-//            return false;
-//        }
-
+        if (!this.category.equals(catalog.category)) {
+            return false;
+        }
         if (this.name == null || this.name != catalog.name) {
             return false;
         }
@@ -126,6 +124,7 @@ public class Catalog {
 
     @Override
     public String toString() {
-        return getClass().getName() + " name = " + getName() + " category = " + getCategory();
+        return "Catalog" +
+                "\n" + "    " + "category = " + getCategory();
     }
 }

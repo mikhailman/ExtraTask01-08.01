@@ -6,7 +6,7 @@
 //
 
 
-package entity;
+package jd2.htp.verishko.entity;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

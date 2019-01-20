@@ -6,7 +6,7 @@
 //
 
 
-package entity;
+package jd2.htp.verishko.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Category complex type.
+ * <p>Java class for SubCategory complex type.
  * <p>
  * <p>The following schema fragment specifies the expected         content contained within this class.
  * <p>
  * <pre>
- * &lt;complexType name="Category"&gt;
+ * &lt;complexType name="SubCategory"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="subcategory" type="{http://jd2.htp.ExtraTask01.com}SubCategory" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="news" type="{http://jd2.htp.ExtraTask01.com}News" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
@@ -35,40 +35,40 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Category", propOrder = {
-        "subcategory"
+@XmlType(name = "SubCategory", propOrder = {
+        "news"
 })
-public class Category {
+public class SubCategory {
 
-    protected List<SubCategory> subcategory;
+    protected List<News> news;
     @XmlAttribute(name = "name")
     protected String name;
 
     /**
-     * Gets the value of the subcategory property.
+     * Gets the value of the news property.
      * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the subcategory property.
+     * This is why there is not a <CODE>set</CODE> method for the news property.
      * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSubcategory().add(newItem);
+     *    getNews().add(newItem);
      * </pre>
      * <p>
      * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SubCategory }
+     * {@link News }
      */
-    public List<SubCategory> getSubcategory() {
-        if (subcategory == null) {
-            subcategory = new ArrayList<SubCategory>();
+    public List<News> getNews() {
+        if (news == null) {
+            news = new ArrayList<News>();
         }
-        return this.subcategory;
+        return this.news;
     }
 
     /**
@@ -96,17 +96,20 @@ public class Category {
         if (this == obj) {
             return true;
         }
-        if (obj == null || obj.getClass() != this.getClass()) {
+        if (obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
-        Category category = (Category) obj;
-        if (this.subcategory != category.subcategory) {
+        SubCategory subCategory = (SubCategory) obj;
+        if (this.news != subCategory.news) {
             return false;
         }
-        if (this.name == null || this.name != category.name) {
+        if (!this.news.equals(subCategory.news)) {
             return false;
         }
-        if (!this.name.equals(category.name)) {
+        if (this.name == null || this.name != subCategory.name) {
+            return false;
+        }
+        if (!this.name.equals(subCategory.name)) {
             return false;
         }
         return true;
@@ -117,12 +120,13 @@ public class Category {
         final int prime = 31;
         int result = 1;
         result = prime * result + (name == null ? 0 : name.hashCode());
-        result = prime * result + (subcategory == null ? 0 : subcategory.hashCode());
+        result = prime * result + (news == null ? 0 : news.hashCode());
         return result;
     }
 
     @Override
     public String toString() {
-        return getClass().getName() + " name = " + getName() + " subcategory = " + getSubcategory();
+        return "SubCategory " +
+                "\n" + "            " + " news = " + getNews();
     }
 }
