@@ -12,7 +12,7 @@ import java.io.File;
 
 public class JAXBParser implements IJAXBParser {
 
-    private String path = String.valueOf(ClassLoader.getSystemResource("catalog.xml").getFile());
+    public String path = String.valueOf(ClassLoader.getSystemResource("catalog.xml").getFile());
 
     public Catalog readFromXml() throws DAOException {
         Catalog catalog = null;

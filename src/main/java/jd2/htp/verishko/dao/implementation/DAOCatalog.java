@@ -10,31 +10,38 @@ import jd2.htp.verishko.entity.SubCategory;
 import jd2.htp.verishko.entity.criteria.Criteria;
 import jd2.htp.verishko.entity.criteria.SearchCriteria;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DAOCatalog implements IDAOCatalog {
-    public List<News> find(Criteria criteria) throws DAOException {
-        IJAXBParser jaxbParser = new JAXBParser();
-        Catalog catalog = jaxbParser.readFromXml();
-        List<News> list = new ArrayList<>();
+    public News findNews(Criteria criteria) throws DAOException {
+        IJAXBParser ijaxbParser = new JAXBParser();
+        Catalog catalog = ijaxbParser.readFromXml();
         for (Category category : catalog.getCategory()) {
-            if (category.getName().equals(SearchCriteria.Catalog.CATEGORY)) {
+            if (category.getName().equals(criteria.getCriteriaMap().get(SearchCriteria.Catalog.CATEGORY))) {
                 for (SubCategory subCategory : category.getSubcategory()) {
-                    if (subCategory.getName().equals(SearchCriteria.Catalog.SUBCATEGORY)) {
-                        for (News newsOne : subCategory.getNews()) {
-                            if (newsOne.getName().equals(SearchCriteria.Catalog.NEWS)) {
-                                list.add(newsOne);
+                    if (subCategory.getName().equals(criteria.getCriteriaMap().get(SearchCriteria.Catalog.SUBCATEGORY))) {
+                        for (News news : subCategory.getNews()) {
+                            if (news.getName().equals(criteria.getCriteriaMap().get(SearchCriteria.Catalog.NEWS))) {
+                                return news;
                             }
                         }
                     }
                 }
             }
         }
-        return list;
+        return null;
     }
 
-    public void add(News news) throws DAOException {
-
+    public void addNews(News news, Criteria criteria) throws DAOException {
+        IJAXBParser ijaxbParser = new JAXBParser();
+        Catalog readFromXml = ijaxbParser.readFromXml();
+        for (Category category : readFromXml.getCategory()) {
+            if (category.getName().equals(criteria.getCriteriaMap().get(SearchCriteria.Catalog.CATEGORY))) {
+                for (SubCategory subCategory : category.getSubcategory()) {
+                    if (subCategory.getName().equals(criteria.getCriteriaMap().get(SearchCriteria.Catalog.SUBCATEGORY))) {
+                        subCategory.getNews().add(news);
+                    }
+                }
+            }
+        }
+        ijaxbParser.writeToXml(readFromXml);
     }
 }
